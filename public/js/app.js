@@ -80,7 +80,7 @@ var usuario;
 
 // ===== Codigo de la aplicación
 
-function crearMensajeHTML(mensaje, personaje, lat, lng) {
+function crearMensajeHTML(mensaje, personaje, lat, lng,foto) {
 
     // console.log(mensaje, personaje, lat, lng);
 
@@ -99,12 +99,12 @@ function crearMensajeHTML(mensaje, personaje, lat, lng) {
                 ${ mensaje }
                 `;
     
-   /* if ( foto ) {
+   if ( foto ) {
         content += `
                 <br>
                 <img class="foto-mensaje" src="${ foto }">
         `;
-    }*/
+    }
         
     content += `</div>        
                 <div class="arrow"></div>
@@ -245,7 +245,7 @@ postBtn.on('click', function() {
         user: usuario,
         lat: lat,
         lng: lng,
-      //  foto: foto
+       foto: foto
     };
 
 
@@ -502,6 +502,9 @@ btnLocation.on('click', () => {
 btnPhoto.on('click', () => {
 
     console.log('Inicializar camara');
+    contenedorCamara.removeClass('oculto');
+
+    camara.encender();
 
 });
 
